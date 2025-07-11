@@ -1,11 +1,12 @@
 <?php
 /*
- *    Aurora Template for NamelessMC
+/* *    Questrp Template
+ *    based on Aurora Template for NamelessMC
  *    github.com/devnex-labs/Aurora
  *    LICENSE: MIT
  */
 
-class Aurora_Template extends SmartyTemplateBase {
+class questrp_Template extends SmartyTemplateBase {
 
     private array $_template;
 
@@ -22,7 +23,7 @@ class Aurora_Template extends SmartyTemplateBase {
 
     public function __construct(Cache $cache, Language $language, User $user, Pages $pages) {
         $template = [
-            'name' => 'Aurora',
+            'name' => 'Questrp',
             'version' => 'dev',
             'nl_version' => '2.2.3',
             'author' => '<a href="https://devnex.pro/" target="_blank">DevNex</a> & <a href="https://github.com/bijju089/aurora-theme/graphs/contributors" target="_blank">Contributors</a>',
@@ -32,7 +33,7 @@ class Aurora_Template extends SmartyTemplateBase {
 
         parent::__construct($template['name'], $template['version'], $template['nl_version'], $template['author'], __DIR__);
 
-        $this->_settings = ROOT_PATH . '/custom/templates/Aurora/_settings/settings.php';
+        $this->_settings = ROOT_PATH . '/custom/templates/Questrp/_settings/settings.php';
        
         $this->_smarty = $smarty;
         $this->_cache = $cache;
@@ -55,27 +56,27 @@ class Aurora_Template extends SmartyTemplateBase {
         $this->_language = $language;
         $this->_user = $user;
         $this->_pages = $pages;
-        require_once('_settings/class/AuroraUtil.php');
-        AuroraUtil::initialise();
+        require_once('_settings/class/QuestrpUtil.php');
+        QuestrpUtil::initialise();
 
 // Assign Language
         $this->getEngine()->addVariables([
-            'CLICK_TO_JOIN' => AuroraUtil::getLanguage('frontend', 'click_to_join'),
-            'MEMBERS_ONLINE' => AuroraUtil::getLanguage('frontend', 'members_online'),
-            'CLICK_TO_COPY' => AuroraUtil::getLanguage('frontend', 'click_to_copy'),
-            'PLAYERS_ONLINE' => AuroraUtil::getLanguage('frontend', 'players_online'),
-            'AURORA_VER' => AuroraUtil::getLanguage('frontend', 'template_version', [
+            'CLICK_TO_JOIN' => QuestrpUtil::getLanguage('frontend', 'click_to_join'),
+            'MEMBERS_ONLINE' => QuestrpUtil::getLanguage('frontend', 'members_online'),
+            'CLICK_TO_COPY' => QuestrpUtil::getLanguage('frontend', 'click_to_copy'),
+            'PLAYERS_ONLINE' => QuestrpUtil::getLanguage('frontend', 'players_online'),
+            'QUESTRP_VER' => QuestrpUtil::getLanguage('frontend', 'template_version', [
                'version' => '' . $template["version"] . ''
              ]),
-            'AURORA_AUTHOR' => AuroraUtil::getLanguage('frontend', 'template_author'),
-            'PORTAL_THERE_ARE_CURRENTLY' => AuroraUtil::getLanguage('frontend', 'portal_there_are_currently'),
-            'PORTAL_PLAYERS_ONLINE' => AuroraUtil::getLanguage('frontend', 'portal_players_online'),
-            'ABOUT' => AuroraUtil::getLanguage('frontend', 'about'),
-            'BE_THE_FIRST' => AuroraUtil::getLanguage('module', 'be_the_first'),
-            'SEND_FEEDBACK' => AuroraUtil::getLanguage('module', 'send_feedback'),
-            'ACCOUNT_SETTINGS' => AuroraUtil::getLanguage('user', 'account_settings'),
-            'REGISTER' => AuroraUtil::getLanguage('user', 'register'),
-            'LOGIN' => AuroraUtil::getLanguage('user', 'login')
+            'QUESTRP_AUTHOR' => QuestrpUtil::getLanguage('frontend', 'template_author'),
+            'PORTAL_THERE_ARE_CURRENTLY' => QuestrpUtil::getLanguage('frontend', 'portal_there_are_currently'),
+            'PORTAL_PLAYERS_ONLINE' => QuestrpUtil::getLanguage('frontend', 'portal_players_online'),
+            'ABOUT' => QuestrpUtil::getLanguage('frontend', 'about'),
+            'BE_THE_FIRST' => QuestrpUtil::getLanguage('module', 'be_the_first'),
+            'SEND_FEEDBACK' => QuestrpUtil::getLanguage('module', 'send_feedback'),
+            'ACCOUNT_SETTINGS' => QuestrpUtil::getLanguage('user', 'account_settings'),
+            'REGISTER' => QuestrpUtil::getLanguage('user', 'register'),
+            'LOGIN' => QuestrpUtil::getLanguage('user', 'login')
         ]);
 
         if (defined('AUTO_LANGUAGE_VALUE')) {
@@ -97,7 +98,7 @@ class Aurora_Template extends SmartyTemplateBase {
 
         $this->addCSSFiles([
             $this->_template['path'] . '_assets/css/extra.css?v=0' => [],
-            $this->_template['path'] . '_assets/css/aurora.css?v=0' => []
+            $this->_template['path'] . '_assets/css/Questrp.css?v=0' => []
         ]);
 
         $route = (isset($_GET['route']) ? rtrim($_GET['route'], '/') : '/');
@@ -166,5 +167,5 @@ class Aurora_Template extends SmartyTemplateBase {
     }
 }
 
-$template = new Aurora_Template($cache, $language, $user, $pages);
+$template = new Questrp_Template($cache, $language, $user, $pages);
 $template_pagination = ['div' => 'ui mini pagination menu', 'a' => '{x}item'];

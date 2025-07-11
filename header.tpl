@@ -12,7 +12,6 @@ value="{$PAGE_DESCRIPTION}"}{else}{assign var="PAGEDESCRIPTION" value=" "}{/if}
 value="{$PAGE_KEYWORDS}"}{else}{assign var="PAGEKEYWORDS" value=" "}{/if}
 <!DOCTYPE html>
 <html{$HTMLCLASS}{$HTMLLANG}{$HTMLRTL}>
-<!-- Aurora v{$AURORA_VER} by DevNexLabs | https://github.com/devnex-labs/aurora-theme -->
     <head>
 
         <meta charset="{$METACHARSET}">
@@ -69,7 +68,7 @@ value="{$PAGE_KEYWORDS}"}{else}{assign var="PAGEKEYWORDS" value=" "}{/if}
 }
 
 </style>
-{include file='aurora/theme.tpl'}
+{include file='questrp/theme.tpl'}
 
 
         {if isset($ANALYTICS_ID)}

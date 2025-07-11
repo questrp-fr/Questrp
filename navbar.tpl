@@ -31,7 +31,7 @@
 <div class="pusher">
     <div id="wrapper">
 {if $NAVBARSTYLE eq '2'}
-{include file='aurora/modern_navbar.tpl'}
+{include file='questrp/modern_navbar.tpl'}
 {else}
         <div class="ui secondary {if $NAVBARTYPE eq '0'} pointing {/if} menu" style="height: 55px;" id="navbar">
             <div class="ui container">

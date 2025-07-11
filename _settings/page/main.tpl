@@ -2,15 +2,15 @@
 {if $updateRequired}
 <div class="alert alert-danger" role="alert">
   <div class="alert-content">
-    <h4 class="alert-title"><i class="fas fa-exclamation-triangle"></i> {$AURORA_OUTDATED}</h4>
-    <p>{$AURORA_OUTDATED_INFO}</p>
+    <h4 class="alert-title"><i class="fas fa-exclamation-triangle"></i> {$QUESTRP_OUTDATED}</h4>
+    <p>{$QUESTRP_OUTDATED_INFO}</p>
   </div>
 </div>
 {/if}
 
   <div class="row justify-content-center">
     <div class="btn-group" role="group">
-      <a href="https://wiki.devnex.pro/aurora-namelessmc" target="_blank" class="btn btn-info">
+      <a href="https://wiki.devnex.pro/questrp-namelessmc" target="_blank" class="btn btn-info">
         <i class="fas fa-book"></i> <span class="d-none d-md-inline">Wiki</span>
       </a>
       <a href="https://devnex.pro/discord" target="_blank" class="btn btn-primary">

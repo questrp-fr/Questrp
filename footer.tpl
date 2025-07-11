@@ -17,7 +17,6 @@
     <div class="four wide column">
      <h4 class="ui inverted header">{$SITE_NAME}</h4>
                    <div class="ui inverted link list">
-                    <span class="item">&copy; <strong>{$SITE_NAME}</strong> {'Y'|date}</span>
                     {if !isset($LOGGED_IN_USER)}
                     <a class="item" href="/register">{$REGISTER}</a>
                     <a class="item" href="/login">{$LOGIN}</a>
@@ -79,12 +78,11 @@
      <div class="center aligned">
         <span class="item">&copy; <strong>{$SITE_NAME}</strong> {'Y'|date}</span>
 		{* THIS LINE SHOULD NOT BE REMOVED, THIS IS THE ATTRIBUTION TO THE TEMPLATE DEVELOPER AND CONTRIBUTORS *}
-		<a href="https://devnex.pro/downloads/aurora" style="float: right; margin-left: 10px;">
+		<a href="https://devnex.pro/downloads/questrp" style="float: right; margin-left: 10px;">
           <img src="https://devnex.pro/_cdn/icon.svg" alt="DevNex" style="filter: grayscale(100%); width: 50px; height: auto;">
         </a>
     </div>
      <div class="center aligned">
-        <span class="item">Powered By <a href="https://namelessmc.com">NamelessMC</a></span>
     </div>
    <div class="center aligned">
      <div class="ui horizontal inverted small divided link list"> 
@@ -95,6 +93,8 @@
       </div>
      </div>
    </div>
+           <span class="item">QuestRP n'est, en aucun cas, affilié à EarthQuest</span>
+
    </div>
 {else}
  <div class="ui inverted vertical footer segment" id="footer">
@@ -102,12 +102,11 @@
      <div class="center aligned">
         <span class="item">&copy; <strong>{$SITE_NAME}</strong> {'Y'|date}</span>
 		{* THIS LINE SHOULD NOT BE REMOVED, THIS IS THE ATTRIBUTION TO THE TEMPLATE DEVELOPER AND CONTRIBUTORS *}
-		<a href="https://devnex.pro/downloads/aurora" style="float: right; margin-left: 10px;">
+		<a href="https://devnex.pro/downloads/questrp" style="float: right; margin-left: 10px;">
           <img src="https://devnex.pro/_cdn/icon.svg" alt="DevNex" style="filter: grayscale(100%); width: 50px; height: auto;">
         </a>
      </div>
      <div class="center aligned">
-        <span class="item">Powered By <a href="https://namelessmc.com">NamelessMC</a></span>
     </div>
    <div class="center aligned">
      <div class="ui horizontal inverted small divided link list"> 
@@ -157,7 +156,7 @@ $.getJSON(url, function(r) {
     }
 });
     </script>
-{include file='aurora/addons.tpl'}
+{include file='questrp/addons.tpl'}
 {if isset($CUSTOMJS)}
 <script>
 {$CUSTOMJS}

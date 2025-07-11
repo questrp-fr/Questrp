@@ -8,7 +8,7 @@
         {foreach from=$NAV_LINKS key=name item=item}
             {if isset($item.items)}
                 <div class="ui pointing dropdown link">
-                    <button class="ui aurora navbar button"
+                    <button class="ui questrp navbar button"
                         style="cursor: pointer; color: rgba(255, 255, 255, 0.6);">{$item.icon}
                         {$item.title} <i class="dropdown icon navbar-item"></i></button>
                     <div class="menu">
@@ -32,7 +32,7 @@
     {/if}
 {else}
     {if !in_array($item.title, $navbarexcludeexploded)}
-        <button class="ui aurora navbar button" onclick="location.href='{$item.link}'" style="cursor: pointer; color: rgba(255, 255, 255, 0.6);">
+        <button class="ui questrp navbar button" onclick="location.href='{$item.link}'" style="cursor: pointer; color: rgba(255, 255, 255, 0.6);">
             {$item.icon}{$item.title}
         </button>
     {/if}

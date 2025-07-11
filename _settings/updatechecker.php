@@ -6,14 +6,14 @@
  * @license MIT
  */
 
-require_once(ROOT_PATH . '/custom/templates/Aurora/template.php');
+require_once(ROOT_PATH . '/custom/templates/Questrp/template.php');
 
-// Get Current Version of Aurora
+// Get Current Version of Questrp
 $currentVersion = $template->getVersion();
 $isDev = ($currentVersion === 'dev');
 
-// ALT: https://api.bijjuxd.me/v1/aurora/get-version
-$versionInfoUrl = "https://api.devnex.pro/v1/aurora/get-version";
+// ALT: https://api.bijjuxd.me/v1/questrp/get-version
+$versionInfoUrl = "https://api.devnex.pro/v1/questrp/get-version";
 
 $updateInfo = @file_get_contents($versionInfoUrl);
 

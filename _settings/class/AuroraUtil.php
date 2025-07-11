@@ -5,16 +5,16 @@
  * LICENSE: MIT
  */
 
-class AuroraUtil
+class QuestrpUtil
 {
-    private static Language $_aurora_language;
+    private static Language $_questrp_language;
 
     public static function getLanguage(string $file, string $term, array $variables = []): string
     {
-        if (!isset(self::$_aurora_language)) {
-            self::$_aurora_language = new Language(ROOT_PATH . '/custom/templates/Aurora/_language', LANGUAGE);
+        if (!isset(self::$_questrp_language)) {
+            self::$_questrp_language = new Language(ROOT_PATH . '/custom/templates/Questrp/_language', LANGUAGE);
         }
-        return self::$_aurora_language->get($file, $term, $variables);
+        return self::$_questrp_language->get($file, $term, $variables);
     }
 
     public static function getDsServer($id): array
@@ -41,7 +41,7 @@ class AuroraUtil
 
     public static function getSettingsToSmarty(): array
     {
-        $settings_data = DB::getInstance()->get('aurora', ['id', '<>', 0])->results();
+        $settings_data = DB::getInstance()->get('questrp', ['id', '<>', 0])->results();
         $result = [];
         if (count($settings_data)) {
             foreach ($settings_data as $value) {
@@ -57,14 +57,14 @@ class AuroraUtil
 
     public static function updateOrCreateParam($key, $value)
     {
-        $array = DB::getInstance()->get('aurora', ['name', '=', $key])->results();
+        $array = DB::getInstance()->get('questrp', ['name', '=', $key])->results();
         $data = end($array);
         if (!empty($data)) {
-            DB::getInstance()->update('aurora', $data->id, [
+            DB::getInstance()->update('questrp', $data->id, [
                 'value' => $value
             ]);
         } else {
-            DB::getInstance()->insert('aurora', [
+            DB::getInstance()->insert('questrp', [
                 'name' => $key,
                 'value' => $value
             ]);
@@ -72,21 +72,21 @@ class AuroraUtil
     }
     public static function initialise()
     {   
-     if (DB::getInstance()->showTables('aurora')) {
+     if (DB::getInstance()->showTables('questrp')) {
          return;
      }
      try {
             $group = DB::getInstance()->get('groups', ['id', '=', 2])->results();
             $group = $group[0];
             $group_permissions = json_decode($group->permissions, TRUE);
-            $group_permissions['admincp.aurora'] = 1;
+            $group_permissions['admincp.questrp'] = 1;
             $group_permissions = json_encode($group_permissions);
             DB::getInstance()->update('groups', 2, ['permissions' => $group_permissions]);
         } catch (Exception $e) {
             // Error
         }
         try {
-            DB::getInstance()->createTable("aurora", "`id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(255) NOT NULL, `value` varchar(5000) NOT NULL, PRIMARY KEY (`id`)");
+            DB::getInstance()->createTable("questrp", "`id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(255) NOT NULL, `value` varchar(5000) NOT NULL, PRIMARY KEY (`id`)");
         } catch (Exception $e) {
             // Error
         }
@@ -95,7 +95,7 @@ class AuroraUtil
 
         foreach ($settings_data as $key => $value) {
             try {
-                DB::getInstance()->insert('aurora', [
+                DB::getInstance()->insert('questrp', [
                     'name' => $key,
                     'value' => $value,
                 ]);
@@ -155,11 +155,11 @@ class AuroraUtil
                 'socialLink4' => 'https://facebook.com/',
                 'footerAbout' => 'Our community has been around for many years and pride ourselves on offering unbiased, critical discussion among people of all different backgrounds. We are working every day to make sure our community is one of the best.',
                 'footerStyle' => 0,
-                'customCSS' => '/* Aurora Template */',
-                'customJS' => '// Aurora Template',
+                'customCSS' => '/* questrp Template */',
+                'customJS' => '// Questrp Template',
                 'Keywords' => '',
                 'welcomeSection' => 0,
-                'welcomeHeader' => 'Welcome to Aurora',
+                'welcomeHeader' => 'Welcome to Questrp',
                 'welcomeDescription' => 'To join our community, please authenticate.',
                 'widgetBot' => 0,
                 'serverID' => '299881420891881473',
@@ -189,15 +189,15 @@ class AuroraUtil
         $settings_data = self::getDefaultSettings();
     
         foreach ($settings_data as $key => $value) {
-            $existing = DB::getInstance()->get('aurora', ['name', '=', $key])->first();
+            $existing = DB::getInstance()->get('questrp', ['name', '=', $key])->first();
     
             if ($existing) {
                 if ($existing->value === null || $existing->value === '') {
-                    DB::getInstance()->update('aurora', $existing->id, ['value' => $value]);
+                    DB::getInstance()->update('questrp', $existing->id, ['value' => $value]);
                 }
             } else {
                 // doesnt exist
-                DB::getInstance()->insert('aurora', [
+                DB::getInstance()->insert('questrp', [
                     'name' => $key,
                     'value' => $value
                 ]);

@@ -4,7 +4,7 @@
         <div class="row no-gutters align-items-center">
             <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Version</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">{$AURORA_VER}</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{$QUESTRP_VER}</div>
             </div>
             <div class="col-auto">
                 <i class="fa-solid fa-gears fa-2x text-gray-300"></i>
@@ -54,7 +54,7 @@
         <div class="row no-gutters align-items-center">
             <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Author</div>
-                <div class="h5 mb-0 font-weight-bold text-reset text-gray-800">{$AURORA_AUTHOR}</div>
+                <div class="h5 mb-0 font-weight-bold text-reset text-gray-800">{$QUESTRP_AUTHOR}</div>
             </div>
             <div class="col-auto">
                 <i class="fa-solid fa-user fa-2x text-gray-300"></i>

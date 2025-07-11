@@ -13,20 +13,26 @@ $currentVersion = $template->getVersion();
 $isDev = ($currentVersion === 'dev');
 
 // ALT: https://api.bijjuxd.me/v1/questrp/get-version
-$versionInfoUrl = "https://api.devnex.pro/v1/questrp/get-version";
+$versionInfoUrl = "https://api.github.com/repos/questrp-fr/Questrp/releases/latest";
 
-$updateInfo = @file_get_contents($versionInfoUrl);
+// Créer un contexte HTTP avec un User-Agent (obligatoire pour GitHub API)
+$options = [
+    "http" => [
+        "header" => "User-Agent: Questrp-Updater"
+    ]
+];
+$context = stream_context_create($options);
+$updateInfo = @file_get_contents($versionInfoUrl, false, $context);
 
 if ($updateInfo !== false) {
     $updateInfo = json_decode($updateInfo, true);
 
-    if (isset($updateInfo['version']) && isset($updateInfo['download_url'])) {
-        $latestVersion = $updateInfo['version'];
-        $downloadUrl = $updateInfo['download_url'];
-        $updateDescription = isset($updateInfo['description']) ? $updateInfo['description'] : "";
+    if (isset($updateInfo['tag_name']) && isset($updateInfo['html_url'])) {
+        $latestVersion = $updateInfo['tag_name'];
+        $downloadUrl = $updateInfo['html_url'];
+        $updateDescription = isset($updateInfo['body']) ? $updateInfo['body'] : "";
 
-        // Get the mandatory update version
-        $updatemandatory = isset($updateInfo['updatemandatory']) ? $updateInfo['updatemandatory'] : "";
+        $updatemandatory = ""; // À définir si tu veux forcer une version minimale
         $updateRequired = version_compare($currentVersion, $updatemandatory, '<');
         $updateAvailable = version_compare($currentVersion, $latestVersion, '<');
     } else {
@@ -37,6 +43,7 @@ if ($updateInfo !== false) {
     $updateAvailable = false;
     $updateRequired = false;
 }
+
 
 // Assign Variables
 $current_template->getEngine()->addVariables([

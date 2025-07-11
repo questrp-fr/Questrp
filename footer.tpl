@@ -17,6 +17,7 @@
     <div class="four wide column">
      <h4 class="ui inverted header">{$SITE_NAME}</h4>
                    <div class="ui inverted link list">
+                    <span class="item">&copy; <strong>{$SITE_NAME}</strong> {'Y'|date}</span>
                     {if !isset($LOGGED_IN_USER)}
                     <a class="item" href="/register">{$REGISTER}</a>
                     <a class="item" href="/login">{$LOGIN}</a>
@@ -83,6 +84,7 @@
         </a>
     </div>
      <div class="center aligned">
+        <span class="item">Powered By <a href="https://namelessmc.com">NamelessMC</a></span>
     </div>
    <div class="center aligned">
      <div class="ui horizontal inverted small divided link list"> 
@@ -93,8 +95,6 @@
       </div>
      </div>
    </div>
-           <span class="item">QuestRP n'est, en aucun cas, affilié à EarthQuest</span>
-
    </div>
 {else}
  <div class="ui inverted vertical footer segment" id="footer">
@@ -107,6 +107,7 @@
         </a>
      </div>
      <div class="center aligned">
+        <span class="item">Powered By <a href="https://namelessmc.com">NamelessMC</a></span>
     </div>
    <div class="center aligned">
      <div class="ui horizontal inverted small divided link list"> 
